@@ -11,9 +11,9 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-hbs.registerPartials(path.join(__dirname, '../views/partials'))
+hbs.registerPartials(path.join(__dirname, 'views/partials'))
 hbs.localsAsTemplateData(app); //this is for Exposing locals variable as template data
 //when we use app.locals & res.locals -> to set the global variable which can be used in Template engine (Handlebars)
 
@@ -22,7 +22,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
